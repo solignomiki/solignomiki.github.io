@@ -15,12 +15,14 @@
 }
 
 :root {
+	--sky-bg-animated: url("assets/sky_bg_animated.gif");
+	--green-thing-animated: url("assets/green_bg_2.gif");
 	font-family: "Seven";
 	text-rendering: geometricPrecision;
 }
 
 body {
-	background-image: url("assets/sky_bg.gif");
+	background-image: var(--sky-bg-animated);
 	background-attachment: fixed;
 	background-repeat: round;
 	background-size: 15%;
@@ -35,14 +37,13 @@ body {
 	max-width: 960px;
 	width: 100%;
 	margin: auto;
+}
+
+.standart-container {
 	padding-left: 1.2rem;
 	padding-right: 1.2rem;
 	padding-top: 1.4rem;
 	padding-bottom: 1.4rem;
-	border-image-source: url("assets/green_bg.gif");
-	border-width: 28px;
-	border-style: solid;
-	border-image-slice: 63;
 }
 
 section {
@@ -54,9 +55,13 @@ section:last-child {
 }
 
 section.first>.container {
-	background-image: url("assets/stone.png"), url("assets/green_bg_2.gif");
+	border-image-source: var(--green-thing-animated);
+	background-image: url("assets/stone.png"), var(--green-thing-animated);
 	background-blend-mode: exclusion;
 	background-size: 5%, 128px;
+	border-width: 28px;
+	border-style: solid;
+	border-image-slice: 63;
 }
 
 section.first .sign {
@@ -75,7 +80,7 @@ section.first .sign {
 	border-width: 24px;
 
 	aspect-ratio: 2/1;
-	background-image: url("assets/sky_bg.gif");
+	background-image: var(--sky-bg-animated);
 	background-attachment: fixed;
 	background-size: 15%;
 	background-repeat: round;
@@ -87,14 +92,18 @@ section.first .sign h1 {
 	margin-bottom: .6rem;
 }
 
-section.first .sign span {
-	margin-top: 1rem;
+section.first .sign p {
 	font-size: 1.2rem;
 }
 
-section.first .sign span>a {
+section.first .sign p:first-of-type {
+	margin-top: 1rem;
+}
+
+section.first .sign p>a {
 	color: blue;
 	text-decoration: underline;
+	text-shadow: 1px 1px ghostwhite;
 }
 
 section.first .sign .logo-gif {
@@ -110,6 +119,7 @@ section.first .sign .logo-gif-2 {
 }
 
 section.first img.overview {
+	display: block;
 	width: 100%;
 	margin: auto;
 	object-fit: cover;
@@ -145,10 +155,16 @@ section.first .overview-div {
 
 
 section.instruction .container {
-	background-image: url("assets/planks_white.gif"), url("assets/green_crafting_table_animated.gif");
+	background-image: url("assets/marble.gif");
 	background-blend-mode: screen;
+	border-image-source: url("assets/lime_leaves_border.gif");
+	border-width: 28px;
+	border-style: solid;
+	border-image-slice: 16;
+	border-image-repeat: round;
 	background-size: 5%, 5%;
-	text-shadow: .8px .8px black;
+	/* text-shadow: .8px .8px black; */
+	image-rendering: pixelated;
 }
 
 section.instruction p {
@@ -170,7 +186,8 @@ section.instruction ul {
 }
 
 section.instruction li {
-	margin-bottom: 1.2rem;
+	margin-bottom: .4rem;
+	margin-left: .2rem;
 }
 
 section.instruction li:last-child {
@@ -180,6 +197,12 @@ section.instruction li:last-child {
 section.instruction li::marker {
 	font-family: "Ten";
 	color: red;
+}
+
+section.instruction li .wrapper {
+	padding-bottom: 1.2rem;
+	border-left: 2px red solid;
+	padding-left: .2rem;
 }
 
 section.instruction a {
@@ -193,15 +216,43 @@ section.instruction span {
 
 section.instruction .info {
 	color: red;
+	background: url("assets/lime_cobble.gif");
+	border-image-source: url("assets/railway_border.gif");
+	border-image-slice: 16;
+	border-image-repeat: repeat;
+	border-bottom-width: 28px;
+	border-image-outset: .2;
+	border-bottom-style: solid;
+	background-size: 5%;
+	padding-left: 1.2rem;
+	padding-right: 1.2rem;
+	padding-top: 1rem;
+	padding-bottom: .4rem;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 section.instruction .info img {
 	float: left;
-	margin-right: 1rem;
+	margin-right: 2rem;
 	margin-top: -4px;
+	object-fit: contain;
+	background-image: url("assets/planks_white.gif");
+	box-shadow: 10px 8px rgba(0, 0, 0, .3);
+}
+
+section.instruction .info p {
+	/* text-shadow: 1px 1px lime; */
+	flex: 0 1 555px;
+	background-image: url("assets/planks_white.gif");
+	padding: 0rem .2rem;
+	box-shadow: 10px 8px rgba(0, 0, 0, .3);
+	image-rendering: initial;
 }
 
 section.instruction .instructions {
+	padding-left: 1.2rem;
+	padding-right: 1.2rem;
 	display: inline-flex;
 	color: black;
 	flex-wrap: wrap;
@@ -210,7 +261,9 @@ section.instruction .instructions {
 
 section.instruction .instructions ol {
 	display: inline-block;
-	margin-bottom: 0;
+	padding-inline-start: 2rem;
+	margin-bottom: 1.8rem;
+	margin-top: 1.8rem;
 }
 
 section.instruction .instructions ol li .wrapper {
