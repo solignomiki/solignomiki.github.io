@@ -17,6 +17,8 @@
 :root {
 	--sky-bg-animated: url("assets/sky_bg_animated.gif");
 	--green-thing-animated: url("assets/green_bg_2.gif");
+	--container-border-width: 28px;
+	--sky-bg-size: 15%;
 	font-family: "Seven";
 	text-rendering: geometricPrecision;
 }
@@ -25,8 +27,8 @@ body {
 	background-image: var(--sky-bg-animated);
 	background-attachment: fixed;
 	background-repeat: round;
-	background-size: 15%;
-	padding: 28px 0rem 28px 0rem;
+	background-size: var(--sky-bg-size);
+	padding: .8rem 0rem .8rem 0rem;
 	/*
 	background-size: 5%;
 	image-rendering: pixelated;
@@ -47,11 +49,12 @@ body {
 }
 
 section {
-	margin-bottom: 28px;
+	padding: 0rem .8rem;
+	margin-bottom: .8rem;
 }
 
 section:last-child {
-	margin-bottom: 0px;
+	margin-bottom: 0rem;
 }
 
 section.first>.container {
@@ -59,7 +62,7 @@ section.first>.container {
 	background-image: url("assets/stone.png"), var(--green-thing-animated);
 	background-blend-mode: exclusion;
 	background-size: 5%, 128px;
-	border-width: 28px;
+	border-width: var(--container-border-width);
 	border-style: solid;
 	border-image-slice: 63;
 }
@@ -78,11 +81,9 @@ section.first .sign {
 	border-style: solid;
 	image-rendering: pixelated;
 	border-width: 24px;
-
-	aspect-ratio: 2/1;
 	background-image: var(--sky-bg-animated);
 	background-attachment: fixed;
-	background-size: 15%;
+	background-size: var(--sky-bg-size);
 	background-repeat: round;
 }
 
@@ -92,12 +93,27 @@ section.first .sign h1 {
 	margin-bottom: .6rem;
 }
 
+section.first .sign h2 {
+	max-width: 300px;
+	margin: auto;
+	font-size: 1.1rem;
+	line-height: 1;
+	margin-bottom: 1.2rem;
+}
+
+section.first .sign .p-bound {
+	margin: auto;
+	max-width: fit-content;
+}
+
 section.first .sign p {
+	line-height: 1;
 	font-size: 1.2rem;
+	text-align: left;
 }
 
 section.first .sign p:first-of-type {
-	margin-top: 1rem;
+	margin-bottom: .4rem;
 }
 
 section.first .sign p>a {
@@ -108,14 +124,14 @@ section.first .sign p>a {
 
 section.first .sign .logo-gif {
 	width: 100%;
+	margin-bottom: -1.4rem;
+	margin-top: -1rem;
 }
 
 section.first .sign .logo-gif-2 {
-	margin-top: -1.2rem;
 	max-height: 26px;
 	object-fit: contain;
 	width: 100%;
-	margin-bottom: .8rem;
 }
 
 section.first img.overview {
@@ -158,7 +174,7 @@ section.instruction .container {
 	background-image: url("assets/marble.gif");
 	background-blend-mode: screen;
 	border-image-source: url("assets/lime_leaves_border.gif");
-	border-width: 28px;
+	border-width: var(--container-border-width);
 	border-style: solid;
 	border-image-slice: 16;
 	border-image-repeat: round;
@@ -187,22 +203,32 @@ section.instruction ul {
 
 section.instruction li {
 	margin-bottom: .4rem;
-	margin-left: .2rem;
+	padding-left: .2rem;
 }
 
 section.instruction li:last-child {
 	margin-bottom: 0rem;
 }
 
+section.instruction li:last-child .wrapper {
+	padding-bottom: 0rem;
+}
+
 section.instruction li::marker {
 	font-family: "Ten";
 	color: red;
+	line-height: 1;
+	font-size: 1.4rem;
+}
+
+section.instruction li .step-number {
+	display: none;
 }
 
 section.instruction li .wrapper {
 	padding-bottom: 1.2rem;
 	border-left: 2px red solid;
-	padding-left: .2rem;
+	padding-left: .6rem;
 }
 
 section.instruction a {
@@ -220,7 +246,7 @@ section.instruction .info {
 	border-image-source: url("assets/railway_border.gif");
 	border-image-slice: 16;
 	border-image-repeat: repeat;
-	border-bottom-width: 28px;
+	border-bottom-width: var(--container-border-width);
 	border-image-outset: .2;
 	border-bottom-style: solid;
 	background-size: 5%;
@@ -235,6 +261,7 @@ section.instruction .info {
 section.instruction .info img {
 	float: left;
 	margin-right: 2rem;
+	max-width: 100%;
 	margin-top: -4px;
 	object-fit: contain;
 	background-image: url("assets/planks_white.gif");
@@ -305,6 +332,133 @@ section.instruction .instructions ol .download span.file img.feature {
 	width: 28px;
 	margin-top: -2px;
 }
+
+@media(max-width: 1000px) {
+	:root {
+		--container-border-width: 20px;
+		--sky-bg-size: 30%;
+	}
+
+	.standart-container {
+		padding-left: .8rem;
+		padding-right: .8rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+
+	section.first .sign {
+		border-width: 18px;
+		padding: .8rem .8rem .8rem .8rem;
+	}
+
+	section.first .sign .p-bound p {
+		font-size: .9rem;
+		margin-bottom: .6rem;
+	}
+
+	section.first .sign .logo-gif {
+		margin-bottom: -1.2rem;
+	}
+
+	section.first .sign h2 {
+		font-size: 1rem;
+	}
+
+	section.first .overview-div {
+		border-width: 24px;
+	}
+
+	section.instruction .info {
+		padding-left: 1.2rem;
+		padding-right: 1.2rem;
+		padding-top: 1rem;
+		padding-bottom: 0.4rem;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	section.instruction .container {
+		background-size: 9%;
+	}
+
+	section.instruction .info {
+		padding-left: .8rem;
+		padding-right: .8rem;
+		padding-top: .8rem;
+		padding-bottom: .6rem;
+		display: flex;
+		flex-wrap: wrap;
+		background-size: 9%;
+	}
+
+	section.instruction .info img {
+		flex: 1 1 100%;
+		max-width: 450px;
+		margin-right: 0rem;
+		margin-top: 0rem;
+		margin-bottom: 1rem;
+		box-shadow: 6px 5px rgba(0, 0, 0, .3);
+	}
+
+	section.instruction .info p {
+		flex: 1 1 100%;
+		max-width: 450px;
+		box-shadow: 6px 5px rgba(0, 0, 0, .3);
+		font-size: 1rem;
+	}
+
+	section.instruction .instructions {
+		width: 100%;
+		padding-left: .8rem;
+		padding-right: .8rem;
+	}
+
+	section.instruction .instructions ol {
+		width: 100%;
+		padding-left: 0;
+		margin: 0;
+		padding-top: 1rem;
+		padding-bottom: .8rem;
+	}
+
+	section.instruction li {
+		display: block;
+	}
+
+	section.instruction h4 {
+		font-size: 1.3rem;
+	}
+
+	section.instruction p {
+		font-size: 1.1rem;
+	}
+
+	section.instruction li .step-number {
+		display: inline-block;
+		font-family: "Ten";
+		color: red;
+		line-height: 1;
+		font-size: 2.4rem;
+		margin: auto;
+		padding-left: .4rem;
+		padding-bottom: .3rem;
+	}
+
+	section.instruction .instructions ol li .wrapper {
+		padding-top: .4rem;
+		padding-left: .4rem;
+		display: block;
+		border-left: none;
+		border-top: 2px red solid;
+		padding-bottom: 1rem;
+	}
+
+	section.instruction .instructions ol li .imagery {
+		margin-top: .3rem;
+	}
+
+}
+
 
 @keyframes animate-red-creeper {
 	0% {
