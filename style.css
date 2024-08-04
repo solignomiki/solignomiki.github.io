@@ -112,8 +112,12 @@ section.first .sign p {
 	text-align: left;
 }
 
-section.first .sign p:first-of-type {
+section.first .sign p {
 	margin-bottom: .4rem;
+}
+
+section.first .sign p:last-of-type {
+	margin-bottom: 0;
 }
 
 section.first .sign p>a {
