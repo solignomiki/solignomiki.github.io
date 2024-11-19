@@ -1,38 +1,52 @@
 @font-face {
-	font-family: 'Ten';
-	src: url('fonts/Minecraft-Tenv2.ttf');
+	font-family: 'Times New Roman';
+	src: url('fonts/timesi.ttf');
 	font-weight: normal;
-	font-style: normal;
+	font-style: italic;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Seven';
-	src: url('fonts/Minecraft-Seven_v2.ttf');
+	font-family: 'Haettenschweiler';
+	src: local('Haettenschweiler'),
+		local('HATTEN'),
+		url('fonts/HATTEN.ttf');
+	letter-spacing: .05ch;
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
 
 :root {
-	--sky-bg-animated: url("assets/sky_bg_animated.gif");
-	--green-thing-animated: url("assets/green_bg_2.gif");
-	--container-border-width: 28px;
-	--sky-bg-size: 15%;
-	font-family: "Seven";
+	--viewpoint-border-width: calc(.4vw + 0.6rem);
+	--section-padding: .8rem;
+	font-family: "Haettenschweiler";
+	color: lime;
 	text-rendering: geometricPrecision;
+	image-rendering: pixelated;
 }
 
 body {
-	background-image: var(--sky-bg-animated);
+	background: black;
 	background-attachment: fixed;
 	background-repeat: round;
-	background-size: var(--sky-bg-size);
-	padding: .8rem 0rem .8rem 0rem;
+	padding: var(--viewpoint-border-width);
 	/*
 	background-size: 5%;
 	image-rendering: pixelated;
 	*/
+}
+html::before {
+	content: "";
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	border-image-source: url("assets/lime_leaves_border.gif");
+	border-width: var(--viewpoint-border-width);
+	border-style: solid;
+	border-image-slice: 16;
+	border-image-repeat: round;
+	z-index: 100;
 }
 
 .container {
@@ -48,8 +62,15 @@ body {
 	padding-bottom: 1.4rem;
 }
 
+.floating-shit {
+	position: absolute;
+	width: 100%;
+	pointer-events: none;
+	user-select: none;
+}
+
 section {
-	padding: 0rem .8rem;
+	padding: 0rem var(--section-padding);
 	margin-bottom: .8rem;
 }
 
@@ -57,290 +78,44 @@ section:last-child {
 	margin-bottom: 0rem;
 }
 
-section.first>.container {
-	border-image-source: var(--green-thing-animated);
-	background-image: url("assets/stone.png"), var(--green-thing-animated);
-	background-blend-mode: exclusion;
-	background-size: 5%, 128px;
-	border-width: var(--container-border-width);
-	border-style: solid;
-	border-image-slice: 63;
+section.first {
+	padding-top: 3rem;
 }
 
-section.first .sign {
+section.first .logo-info-wrapper {
 	max-width: 625px;
 	margin: auto;
-	margin-bottom: 2rem;
 	text-align: center;
-	padding: 2rem 2rem 2rem 2rem;
-	color: lime;
-	border-image-source: url("assets/red_creeper_animated.gif");
-	border-image-repeat: round;
-	border-image-slice: 8;
-	animation: animate-red-creeper 2s infinite step-start;
-	border-style: solid;
-	image-rendering: pixelated;
-	border-width: 24px;
-	background-image: var(--sky-bg-animated);
-	background-attachment: fixed;
-	background-size: var(--sky-bg-size);
-	background-repeat: round;
+	font-size: 1.4rem;
 }
-
-section.first .sign h1 {
-	font-family: "Ten";
-	font-size: 3rem;
-	margin-bottom: .6rem;
-}
-
-section.first .sign h2 {
-	max-width: 300px;
-	margin: auto;
-	font-size: 1.1rem;
-	line-height: 1;
-	margin-bottom: 1.2rem;
-}
-
-section.first .sign .p-bound {
-	margin: auto;
-	max-width: fit-content;
-}
-
-section.first .sign p {
-	line-height: 1;
-	font-size: 1.2rem;
-	text-align: left;
-}
-
-section.first .sign p {
-	margin-bottom: .4rem;
-}
-
-section.first .sign p:last-of-type {
-	margin-bottom: 0;
-}
-
-section.first .sign p>a {
-	color: blue;
-	text-decoration: underline;
-	text-shadow: 1px 1px ghostwhite;
-}
-
-section.first .sign .logo-gif {
-	width: 100%;
-	margin-bottom: -1.4rem;
-	margin-top: -1rem;
-}
-
-section.first .sign .logo-gif-2 {
-	max-height: 26px;
-	object-fit: contain;
-	width: 100%;
-}
-
-section.first img.overview {
-	display: block;
-	width: 100%;
-	margin: auto;
-	object-fit: cover;
-	aspect-ratio: 16/9;
-}
-
-section.first .overview-div {
+section.first .upper {
 	position: relative;
-	max-width: 860px;
-	width: 100%;
-	margin: auto;
-	border-image-source: url("assets/shuchje_border_2.gif");
-	border-image-slice: 42;
-	border-image-repeat: round;
-	animation: animate-schuchje 2s infinite step-start;
-	border-width: 32px;
-	border-style: solid;
-	border-color: transparent;
-	image-rendering: pixelated;
 }
 
-/* section.first .overview-div::before {
-	content: "";
-	width: 90%;
-	border: 5vw solid;
-	border-image: url(assets/nail.png);
-	height: 90%;
-	position: absolute;
-	max-width: 100%;
-	margin-left: calc(10% / 2);
-	margin-top: calc(10% / 4);
-} */
-
-
-section.instruction .container {
-	background-image: url("assets/marble.gif");
-	background-blend-mode: screen;
-	border-image-source: url("assets/lime_leaves_border.gif");
-	border-width: var(--container-border-width);
-	border-style: solid;
-	border-image-slice: 16;
-	border-image-repeat: round;
-	background-size: 5%, 5%;
-	/* text-shadow: .8px .8px black; */
-	image-rendering: pixelated;
+section.first .floating-shit.heroin {
+	left: 8%;
+	top: -3rem;
+	max-width: 130px;
+}
+section.first .floating-shit.nome {
+	right: 8%;
+	top: -3rem;
+	max-width: 150px;
+	/*transform: rotate(160deg);*/
 }
 
-section.instruction p {
-	font-size: 1.2rem;
-	font-family: "Seven";
-	line-height: 1.1;
+section.first .logo-info-wrapper .logo {
+	display: inline-block;
+	margin-bottom: -1.1rem;
 }
-
-section.instruction h4 {
-	font-family: "Seven";
-	color: red;
+section.first .logo-info-wrapper p {
+	display: inline-block;
 	line-height: 1;
-	font-size: 1.4rem;
-	font-weight: normal;
 }
 
-section.instruction ul {
-	padding: 0px 8px;
-}
-
-section.instruction li {
-	margin-bottom: .4rem;
-	padding-left: .2rem;
-}
-
-section.instruction li:last-child {
-	margin-bottom: 0rem;
-}
-
-section.instruction li:last-child .wrapper {
-	padding-bottom: 0rem;
-}
-
-section.instruction li::marker {
-	font-family: "Ten";
-	color: red;
-	line-height: 1;
-	font-size: 1.4rem;
-}
-
-section.instruction li .step-number {
-	display: none;
-}
-
-section.instruction li .wrapper {
-	padding-bottom: 1.2rem;
-	border-left: 2px red solid;
-	padding-left: .6rem;
-}
-
-section.instruction a {
-	text-decoration: none;
-	display: block;
-}
-
-section.instruction span {
-	color: blue;
-}
-
-section.instruction .info {
-	color: red;
-	background: url("assets/lime_cobble.gif");
-	border-image-source: url("assets/railway_border.gif");
-	border-image-slice: 16;
-	border-image-repeat: repeat;
-	border-bottom-width: var(--container-border-width);
-	border-image-outset: .2;
-	border-bottom-style: solid;
-	background-size: 5%;
-	padding-left: 1.2rem;
-	padding-right: 1.2rem;
-	padding-top: 1rem;
-	padding-bottom: .4rem;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-section.instruction .info img {
-	float: left;
-	margin-right: 2rem;
-	max-width: 100%;
-	margin-top: -4px;
-	object-fit: contain;
-	background-image: url("assets/planks_white.gif");
-	box-shadow: 10px 8px rgba(0, 0, 0, .3);
-}
-
-section.instruction .info p {
-	/* text-shadow: 1px 1px lime; */
-	flex: 0 1 555px;
-	background-image: url("assets/planks_white.gif");
-	padding: 0rem .2rem;
-	box-shadow: 10px 8px rgba(0, 0, 0, .3);
-	image-rendering: initial;
-}
-
-section.instruction .instructions {
-	padding-left: 1.2rem;
-	padding-right: 1.2rem;
-	display: inline-flex;
-	color: black;
-	flex-wrap: wrap;
-	font-size: 1.2rem;
-}
-
-section.instruction .instructions ol {
-	display: inline-block;
-	padding-inline-start: 2rem;
-	margin-bottom: 1.8rem;
-	margin-top: 1.8rem;
-}
-
-section.instruction .instructions ol li .wrapper {
-	display: inline-flex;
-	flex-wrap: wrap;
-}
-
-section.instruction .instructions ol li .text {
-	display: block;
-	max-width: 500px;
-	/* width: 100%; */
-}
-
-section.instruction .instructions ol li .imagery {
-	margin-left: 1rem;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-section.instruction .instructions ol li .imagery img {
-	max-width: 100%;
-}
-
-section.instruction .instructions ol .download span.file {
-	color: blue;
-	text-decoration: underline;
-	margin-top: .4rem;
-	display: inline-block;
-}
-
-section.instruction .instructions ol .download span.file img.file {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-section.instruction .instructions ol .download span.file img.feature {
-	display: inline-block;
-	vertical-align: middle;
-	width: 28px;
-	margin-top: -2px;
-}
 
 @media(max-width: 1000px) {
 	:root {
-		--container-border-width: 20px;
-		--sky-bg-size: 30%;
 	}
 
 	.standart-container {
@@ -350,256 +125,4 @@ section.instruction .instructions ol .download span.file img.feature {
 		padding-bottom: 1rem;
 	}
 
-	section.first .sign {
-		border-width: 18px;
-		padding: .8rem .8rem .8rem .8rem;
-	}
-
-	section.first .sign .p-bound p {
-		font-size: .9rem;
-		margin-bottom: .6rem;
-	}
-
-	section.first .sign .logo-gif {
-		margin-bottom: -1.2rem;
-	}
-
-	section.first .sign h2 {
-		font-size: 1rem;
-	}
-
-	section.first .overview-div {
-		border-width: 24px;
-	}
-
-	section.instruction .info {
-		padding-left: 1.2rem;
-		padding-right: 1.2rem;
-		padding-top: 1rem;
-		padding-bottom: 0.4rem;
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	section.instruction .container {
-		background-size: 9%;
-	}
-
-	section.instruction .info {
-		padding-left: .8rem;
-		padding-right: .8rem;
-		padding-top: .8rem;
-		padding-bottom: .6rem;
-		display: flex;
-		flex-wrap: wrap;
-		background-size: 9%;
-	}
-
-	section.instruction .info img {
-		flex: 1 1 100%;
-		max-width: 450px;
-		margin-right: 0rem;
-		margin-top: 0rem;
-		margin-bottom: 1rem;
-		box-shadow: 6px 5px rgba(0, 0, 0, .3);
-	}
-
-	section.instruction .info p {
-		flex: 1 1 100%;
-		max-width: 450px;
-		box-shadow: 6px 5px rgba(0, 0, 0, .3);
-		font-size: 1rem;
-	}
-
-	section.instruction .instructions {
-		width: 100%;
-		padding-left: .8rem;
-		padding-right: .8rem;
-	}
-
-	section.instruction .instructions ol {
-		width: 100%;
-		padding-left: 0;
-		margin: 0;
-		padding-top: 1rem;
-		padding-bottom: .8rem;
-	}
-
-	section.instruction li {
-		display: block;
-	}
-
-	section.instruction h4 {
-		font-size: 1.3rem;
-	}
-
-	section.instruction p {
-		font-size: 1.1rem;
-	}
-
-	section.instruction li .step-number {
-		display: inline-block;
-		font-family: "Ten";
-		color: red;
-		line-height: 1;
-		font-size: 2.4rem;
-		margin: auto;
-		padding-left: .4rem;
-		padding-bottom: .3rem;
-	}
-
-	section.instruction .instructions ol li .wrapper {
-		padding-top: .4rem;
-		padding-left: .4rem;
-		display: block;
-		border-left: none;
-		border-top: 2px red solid;
-		padding-bottom: 1rem;
-	}
-
-	section.instruction .instructions ol li .imagery {
-		margin-top: .3rem;
-	}
-
-}
-
-
-@keyframes animate-red-creeper {
-	0% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 1.gif');
-	}
-
-	5.88% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 2.gif');
-	}
-
-	11.76% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 3.gif');
-	}
-
-	17.64% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 4.gif');
-	}
-
-	23.52% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 5.gif');
-	}
-
-	29.4% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 6.gif');
-	}
-
-	35.28% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 7.gif');
-	}
-
-	41.16% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 8.gif');
-	}
-
-	47.04% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 9.gif');
-	}
-
-	52.92% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 10.gif');
-	}
-
-	58.8% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 11.gif');
-	}
-
-	64.68% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 12.gif');
-	}
-
-	70.56% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 13.gif');
-	}
-
-	76.44% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 14.gif');
-	}
-
-	82.32% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 15.gif');
-	}
-
-	88.2% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 16.gif');
-	}
-
-	94.08% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 17.gif');
-	}
-
-	100% {
-		border-image-source: url('assets/red_creeper_animation_up/Frame 1.gif');
-	}
-}
-
-@keyframes animate-schuchje {
-	0% {
-		border-image-source: url("assets/schuchje_animation/Frame 1.gif");
-	}
-
-	6.67% {
-		border-image-source: url("assets/schuchje_animation/Frame 2.gif");
-	}
-
-	13.33% {
-		border-image-source: url("assets/schuchje_animation/Frame 3.gif");
-	}
-
-	20% {
-		border-image-source: url("assets/schuchje_animation/Frame 4.gif");
-	}
-
-	26.67% {
-		border-image-source: url("assets/schuchje_animation/Frame 5.gif");
-	}
-
-	33.33% {
-		border-image-source: url("assets/schuchje_animation/Frame 6.gif");
-	}
-
-	40% {
-		border-image-source: url("assets/schuchje_animation/Frame 7.gif");
-	}
-
-	46.67% {
-		border-image-source: url("assets/schuchje_animation/Frame 8.gif");
-	}
-
-	53.33% {
-		border-image-source: url("assets/schuchje_animation/Frame 9.gif");
-	}
-
-	60% {
-		border-image-source: url("assets/schuchje_animation/Frame 10.gif");
-	}
-
-	66.67% {
-		border-image-source: url("assets/schuchje_animation/Frame 11.gif");
-	}
-
-	73.33% {
-		border-image-source: url("assets/schuchje_animation/Frame 12.gif");
-	}
-
-	80% {
-		border-image-source: url("assets/schuchje_animation/Frame 13.gif");
-	}
-
-	86.67% {
-		border-image-source: url("assets/schuchje_animation/Frame 14.gif");
-	}
-
-	93.33% {
-		border-image-source: url("assets/schuchje_animation/Frame 15.gif");
-	}
-
-	100% {
-		border-image-source: url("assets/schuchje_animation/Frame 1.gif");
-	}
 }
