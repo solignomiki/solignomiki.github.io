@@ -17,7 +17,6 @@
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
   background: pink;
 }
 
@@ -36,7 +35,6 @@
 ::-webkit-scrollbar-thumb:hover {
 	background-image: url("assets/logo_h.gif");
 }
-
 
 :root {
 	--viewpoint-border-width: calc(.4vw + 0.6rem);
@@ -60,6 +58,10 @@ body {
 	background-size: 5%;
 	image-rendering: pixelated;
 	*/
+}
+
+img {
+	display: inline-block;
 }
 
 body::before {
@@ -99,6 +101,21 @@ body::before {
 	width: 100%;
 	pointer-events: none;
 	user-select: none;
+}
+
+.separator div {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.separator img {
+	max-width: 1000px;
+	width: 100%;
+
+.separator img {
+	max-width: 1000px;
+	margin: auto;
+}	margin: auto;
 }
 
 section {
@@ -163,6 +180,7 @@ section.first .logo-info-wrapper .logo {
 	display: inline-block;
 	margin-bottom: -1.1rem;
 	width: 625px;
+	user-select: none;
 }
 section.first .logo-info-wrapper p {
 	display: inline-block;
@@ -192,7 +210,7 @@ section.first .info p > a {
 
 
 section.towns {
-	
+	padding-bottom: 2.5rem;
 }
 
 section.towns .wrapper {
@@ -255,6 +273,168 @@ section.towns .floating-shit.nbp {
 	max-width: 250px;
 	z-index: 9;
 	transform: rotate(308deg);
+}
+
+section.instruction {
+	color: red;
+	letter-spacing: 0.1ch;
+	padding-top: 3.5rem;
+	padding-bottom: 3rem;
+}
+section.instruction .title-space {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 3rem;
+}
+
+section.instruction .title-space h1 {
+	font-family: "Times New Roman";
+	text-transform: uppercase;
+	transform: skew(333deg, 0deg) translate(-.5rem, 0);
+	font-size: 3.5rem;
+	letter-spacing: .5ch;
+	margin-right: 3rem;
+	line-height: .9;
+	flex: 0 0 auto;
+	font-weight: 400;
+}
+
+section.instruction .title-space p {
+	font-size: 1.4rem;
+	max-width: 365px;
+	line-height: 1.1;
+	flex: 1 0 auto;
+}
+
+section.instruction .instructions {
+}
+section.instruction .instructions .wrapper {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 1rem;
+	margin-bottom: 2.5rem;
+}
+
+section.instruction .instructions .wrapper:last-of-type{
+	margin-bottom: 0rem;
+}
+
+section.instruction .instructions .bullit {
+	width: 100%;
+	max-width: 69px;
+}
+section.instruction .instructions .bullit>div {
+	float: right;
+	position: relative;
+	
+}
+section.instruction .instructions .bullit p {
+	display: inline-block;
+	position: absolute;
+	top: 3px;
+	right: 6px;
+	font-size: 1.25rem;
+}
+section.instruction .instructions .bullit img {
+	
+}
+
+section.instruction .instructions .bullit_1 p {
+}
+
+section.instruction .instructions .bullit_2 p {
+	top: 1px;
+	right: 14px;
+}
+section.instruction .instructions .bullit_3 p {
+	top: 0px;
+	right: 14px;
+}
+section.instruction .instructions .bullit_4 p {
+	top: 3px;
+	right: 8px;
+}
+
+section.instruction .instructions .bullit_5 p {
+	top: 2px;
+	right: 9px;
+}
+section.instruction .instructions .instruction {
+	flex: 1 1 auto;
+	padding-top: .3rem;
+}
+section.instruction .instructions .instruction h2 {
+	font-family: "Times New Roman";
+	font-size: 1.4rem;
+	margin-bottom: .4rem;
+}
+section.instruction .instructions .instruction p {
+	max-width: 425px;
+	line-height: 1.2;
+	font-size: 1.4rem;
+}
+
+section.instruction .instructions .instruction img {
+	margin-top: .6rem;
+	display: inline-block;
+}
+
+section.instruction .instructions .instruction_1 a {
+	color: blue;
+	font-size: 1.4rem;
+	margin-top: .6rem;
+	display: inline-block;
+	text-shadow: 0px 0px 0px red;
+}
+section.instruction .instructions .instruction_1 a img {
+	max-width: 28px;
+	vertical-align: middle;
+	margin-top: 0;
+}
+
+footer .container {
+	position: relative;
+}
+
+footer .wrapper {
+	display: flex;
+	justify-content: space-between;
+	font-family: "Times New Roman";
+	font-size: 1.6rem;
+	padding: 0rem 4rem;
+	text-align: bottom;
+}
+
+footer .wrapper .left {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 3rem;
+}
+footer .wrapper .right {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 1.6rem;
+}
+footer .wrapper p {
+	display: inline-block;
+}
+footer .wrapper a {
+	display: inline-block;
+	color: blue;
+	font-size: 2rem;
+}
+
+footer .floating-shit.two_sit {
+	width: 160px;
+	left: -8rem;
+	top: 0rem;
+}
+
+footer .floating-shit.scene {
+	width: 160px;
+	right: -6rem;
+	top: 0rem;
 }
 
 @media(max-width: 1000px) {
