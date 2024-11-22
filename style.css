@@ -450,5 +450,67 @@ footer .floating-shit.scene {
 		padding-top: 1rem;
 		padding-bottom: 1rem;
 	}
+	
+	section.first {
+		padding-top: 6rem;
+		margin-bottom: 10rem;
+	}
+	section.first .upper {
+		margin-bottom: 12rem;
+	}
+	section.first .logo-info-wrapper p {
+		font-size: 1.2	rem;
+	}
+	section.first .info {
+		position: relative;
+	}
+	section.first .info .text {
+		position: absolute;
+		margin-left: 2rem;
+		left: 0;
+		right: 0;
+		width: 300px;
+		padding-top: 1.6rem; 
+	}
+	section.first .info p {
+		display: inline-block;
+	}
+	section.first .info .overdraw {
+		width: 300px;
+		position: relative;
+		margin-left: calc(.8rem + .4rem);
+		display: block;
+	}
+	
+	section.first .floating-shit.heroin {
+		left: -.8rem;
+		top: -6rem;
+		max-width: 100px;
+	}
+	section.first .floating-shit.nome {
+		right: 0%;
+		top: -6rem;
+		max-width: 150px;
+		transform: skew(259deg, 32deg);
+	}
+	section.first .floating-shit.landscape {
+		right: -1.6rem;
+		top: 11rem;
+		max-width: 240px;
+		z-index: 10;
+	}
+	section.first .floating-shit.czernyj {
+		left: -5rem;
+		top: 7rem;
+		max-width: 240px;
+		z-index: 11;
+	}
+
+	section.first .floating-shit.golova {
+		right: -1.6rem;
+		top: 6rem;
+		max-width: 160px;
+		z-index: 11;
+	}
 
 }
