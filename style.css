@@ -8,9 +8,7 @@
 
 @font-face {
 	font-family: 'Haettenschweiler';
-	src: local('Haettenschweiler'),
-		local('HATTEN'),
-		url('fonts/HATTEN.ttf');
+	src: url('fonts/HATTEN.ttf');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -46,14 +44,14 @@
 	letter-spacing: .05ch;
 }
 html {
-	overflow-x: hidden;
+	overflow-x: clip;
 	cursor: url("assets/nome_pointer.gif"), auto;
 }
 body {
 	background: black;
 	background-attachment: fixed;
 	background-repeat: round;
-	overflow-x: hidden;
+	overflow-x: clip;
 	/*
 	background-size: 5%;
 	image-rendering: pixelated;
@@ -108,14 +106,11 @@ body::before {
 	display: flex;
 	justify-content: center;
 }
-.separator img {
-	max-width: 1000px;
-	width: 100%;
 
 .separator img {
 	max-width: 1000px;
+	width: 100%;
 	margin: auto;
-}	margin: auto;
 }
 
 section {
