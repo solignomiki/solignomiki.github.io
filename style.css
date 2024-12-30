@@ -102,7 +102,6 @@ img {
 .floating-shit {
 	position: absolute;
 	width: 100%;
-	pointer-events: none;
 	user-select: none;
 }
 
@@ -257,12 +256,19 @@ section.towns .floating-shit.little_prince {
 	max-width: 400px;
 	z-index: 10;
 }
+section.towns .floating-shit.little_prince:active {
+	filter: invert(1);
+}
 section.towns .floating-shit.kit {
 	right: 24rem;
 	top: -2rem;
 	max-width: 250px;
 	z-index: 10;
 	transform: rotate(15deg);
+}
+
+section.towns .floating-shit.kit:active {
+	filter: invert(1);
 }
 section.towns .floating-shit.iisus {
 	right: 15rem;
