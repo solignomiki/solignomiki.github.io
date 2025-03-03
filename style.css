@@ -2,7 +2,7 @@
 	font-family: 'Times New Roman';
 	src:
 		local('Times New Roman')	
-		url('fonts/timesi.ttf');
+		url('fonts/timesi.ttf') format("truetype");
 	font-weight: normal;
 	font-style: italic;
 	font-display: swap;
@@ -12,7 +12,7 @@
 	font-family: 'Haettenschweiler';
 	src: 
 		local('Haettenschweiler'),
-		url('fonts/HATTEN.ttf');
+		url('fonts/HATTEN.ttf') format("truetype");
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
